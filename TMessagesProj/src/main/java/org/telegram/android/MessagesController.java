@@ -8,6 +8,8 @@
 
 package org.telegram.android;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -15,10 +17,17 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Vibrator;
 import android.text.Html;
+import android.util.Log;
+import android.util.SparseArray;
+
+import com.andguru.telegram.messenger.R;
 
 import org.telegram.messenger.BuffersStorage;
 import org.telegram.messenger.ByteBufferDesc;
@@ -27,7 +36,7 @@ import org.telegram.messenger.FileLoader;
 import org.telegram.messenger.FileLog;
 import org.telegram.messenger.MessageKeyData;
 import org.telegram.messenger.NotificationCenter;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.messenger.RPCRequest;
 import org.telegram.messenger.TLClassStore;
 import org.telegram.messenger.TLObject;
@@ -36,8 +45,12 @@ import org.telegram.messenger.UserConfig;
 import org.telegram.messenger.Utilities;
 import org.telegram.objects.MessageObject;
 import org.telegram.objects.PhotoObject;
+import org.telegram.objects.VibrationOptions;
 import org.telegram.ui.ApplicationLoader;
-
+import org.telegram.ui.IntroActivity;
+import org.telegram.ui.LaunchActivity;
+import org.telegram.ui.SettingsActivity;
+import org.telegram.ui.PopupNotificationActivity;
 import java.io.File;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -45,6 +58,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Semaphore;
 
@@ -83,13 +97,14 @@ public class MessagesController implements NotificationCenter.NotificationCenter
     public boolean updatingState = false;
     public boolean firstGettingTask = false;
     public boolean registeringForPush = false;
-
+    private long lastSoundPlay = 0;
     private long lastStatusUpdateTime = 0;
     private long statusRequest = 0;
     private int statusSettingState = 0;
     private boolean offlineSent = false;
     private String uploadingAvatar = null;
-
+    private SoundPool soundPool;
+    private int sound;
     public boolean enableJoined = true;
     public int fontSize = AndroidUtilities.dp(16);
 
@@ -162,7 +177,10 @@ public class MessagesController implements NotificationCenter.NotificationCenter
 
     public static final int removeAllMessagesFromDialog = 25;
 
-    public static final int notificationsSettingsUpdated = 26;
+	public static final int notificationsSettingsUpdated = 26;
+    // Notification ID when blocked contacts cache is updated
+    public static final int blockedContactsDidLoaded = 28;
+
 
     private static volatile MessagesController Instance = null;
     public static MessagesController getInstance() {

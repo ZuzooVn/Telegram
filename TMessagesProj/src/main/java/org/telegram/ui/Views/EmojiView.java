@@ -27,7 +27,7 @@ import android.widget.TextView;
 import org.telegram.android.AndroidUtilities;
 import org.telegram.android.Emoji;
 import org.telegram.android.LocaleController;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 
 import java.util.ArrayList;
 
@@ -113,7 +113,7 @@ public class EmojiView extends LinearLayout {
             adapters.add(localEmojiGridAdapter);
         }
 
-        setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[] { -14145496, -16777216 }));
+        setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[] { 0xFFD0D0D0, 0xFFD0D0D0 }));
         pager = new ViewPager(getContext());
         pager.setAdapter(new EmojiPagesAdapter());
         PagerSlidingTabStrip tabs = new PagerSlidingTabStrip(getContext());

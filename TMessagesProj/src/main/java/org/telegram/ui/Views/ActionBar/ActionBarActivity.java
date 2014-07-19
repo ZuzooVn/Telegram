@@ -34,10 +34,14 @@ import android.widget.FrameLayout;
 
 import org.telegram.android.AndroidUtilities;
 import org.telegram.messenger.FileLog;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.messenger.Utilities;
+import org.telegram.ui.ChangeLog;
 
 import java.util.ArrayList;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class ActionBarActivity extends Activity {
 
@@ -75,6 +79,8 @@ public class ActionBarActivity extends Activity {
     private int startedTrackingPointerId;
     private Runnable onCloseAnimationEndRunnable = null;
     private Runnable onOpenAnimationEndRunnable = null;
+	private InterstitialAd interstitial;
+    private Handler handler;
 
     private class FrameLayoutTouch extends FrameLayout {
         public FrameLayoutTouch(Context context) {
@@ -156,6 +162,34 @@ public class ActionBarActivity extends Activity {
         }
 
         needLayout();
+
+        ChangeLog cl = new ChangeLog(this);
+        if (cl.firstRun())
+            cl.getLogDialog().show();
+
+
+        // Create the interstitial.
+        interstitial = new InterstitialAd(this);
+        interstitial.setAdUnitId("ca-app-pub-7511795693883503/5427296274");
+
+        // Create ad request.
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        // Begin loading your interstitial.
+        interstitial.loadAd(adRequest);
+
+    }
+
+    // Invoke displayInterstitial() when you are ready to display an interstitial.
+    public void displayInterstitial() {
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }else{
+            // Create ad request.
+            AdRequest adRequest = new AdRequest.Builder().build();
+            // Begin loading your interstitial.
+            interstitial.loadAd(adRequest);
+        }
     }
 
     @Override
@@ -187,6 +221,13 @@ public class ActionBarActivity extends Activity {
 
             actionBar.setCurrentActionBarLayer(lastFragment.actionBarLayer);
         }
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                displayInterstitial();
+                handler.postDelayed(this, 300000);
+            }
+        }, 120000);
     }
 
     @Override
@@ -196,6 +237,7 @@ public class ActionBarActivity extends Activity {
             BaseFragment lastFragment = fragmentsStack.get(fragmentsStack.size() - 1);
             lastFragment.onPause();
         }
+        handler.removeCallbacksAndMessages(null);
     }
 
     private void onSlideAnimationEnd(boolean backAnimation) {

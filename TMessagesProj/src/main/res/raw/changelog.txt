@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <style type='text/css'>
+      a            { color:#000000 }
+      div.title    { 
+          color:#3a6d99; 
+          font-size:1.2em; 
+          font-weight:bold; 
+          margin-top:1em; 
+          margin-bottom:0.5em; 
+          text-align:center }
+      div.subtitle { 
+          color:#3a6d99; 
+          font-size:0.8em; 
+          margin-bottom:1em; 
+          text-align:center }
+      div.freetext { color:#000000 }
+      div.list     { color:#000000 }
+    </style>
+  </head>
+  <body>
+
+$ 1.1.1
+  % Version 1.1.1
+  _ July 19, 2014
+    * Bug fixes
+    * Tap outside dialog to dismiss it
+    * Removed invisible status due to request from Official Telegram Team
+    * Fixed some minor bugs to be better and faster.
+    
+$ 1.1.0
+  % Version 1.1.0
+  _ July 14, 2014
+    * Improved performance for Android 2.x. 
+    * Enhancement to the message forwarding.
+    * Added ability to decide if the person will be able to see the previous messages of the group.
+    * Added lighter background color for the Emoji view.
+    * Added confirmation when deleting group.
+
+$ 1.0.9
+  % Version 1.0.9
+  _ July 11, 2014
+    * Fixed Android 2.x crashes.
+    * Added invisible status.
+    * Notification improvements.
+    * Removed In-app notifications.   
+    * Removed Quick reply.
+    * Android L Optimization.
+
+$ 1.0.8
+  % Version 1.0.8
+  _ July 08, 2014
+    * Improvements for reliability and speed.
+    * Fixed some minor bugs to be better and faster.
+    * Improved user experiences
+
+$ 1.0.7
+  % Version 1.0.7
+  _ July 07, 2014
+    * Optimized for Android L.
+    * Added Popup notifications.
+    * Performance and stability improvements.
+    * Security enhancements.
+
+$ 1.0.6
+  % Version 1.0.6
+  _ July 04, 2014
+    * Multiple expandable notifications showing all the received messages.
+    * Added quick reply from notification for Android 4.1 and later (On some devices, if there are multiple notifications, the notification with quick reply button appear collapsed. Swiping down on the notification with two pointers gesture expands the actions.).
+    * Implemented confirmation alert before delete messages.
+
+$ 1.0.5
+  % Version 1.0.5
+  _ June 24, 2014
+    * Added white color to color picker
+    * Decelerated scrolling in photo viewer
+    * Improved files download speed
+    
+$ 1.0.4
+  % Version 1.0.4
+  _ June 21, 2014
+    * Added support for more than 200 blocked contact
+    * Added setting item to choose vibration speed between default, fast, medium, slow
+    * Added the option to choose how many vibration should be made on notification.
+
+$ END_OF_CHANGE_LOG
+  </body>
+</html>

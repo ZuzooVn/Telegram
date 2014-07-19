@@ -27,7 +27,7 @@ import org.telegram.messenger.ConnectionsManager;
 import org.telegram.messenger.FileLoader;
 import org.telegram.messenger.FileLog;
 import org.telegram.messenger.NotificationCenter;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.messenger.TLRPC;
 import org.telegram.messenger.UserConfig;
 import org.telegram.messenger.Utilities;
@@ -210,7 +210,10 @@ public class NotificationsController {
                 }
             }
         } else {
-            msg = LocaleController.getString("YouHaveNewMessage", R.string.YouHaveNewMessage);
+//            msg = LocaleController.getString("YouHaveNewMessage", R.string.YouHaveNewMessage);
+
+          msg = LocaleController.formatString("NotificationMessageNoText", R.string.NotificationMessageNoText, Utilities.formatName(user.first_name, user.last_name));
+
         }
         return msg;
     }
@@ -245,9 +248,6 @@ public class NotificationsController {
             boolean needVibrate = false;
             String choosenSoundPath = null;
             int ledColor = 0xff00ff00;
-            boolean inAppSounds = false;
-            boolean inAppVibrate = false;
-            boolean inAppPreview = false;
             int vibrate_override = 0;
 
             SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("Notifications", Context.MODE_PRIVATE);
@@ -258,9 +258,7 @@ public class NotificationsController {
 
             String defaultPath = Settings.System.DEFAULT_NOTIFICATION_URI.getPath();
             if (!notifyDisabled) {
-                inAppSounds = preferences.getBoolean("EnableInAppSounds", true);
-                inAppVibrate = preferences.getBoolean("EnableInAppVibrate", true);
-                inAppPreview = preferences.getBoolean("EnableInAppPreview", true);
+
                 vibrate_override = preferences.getInt("vibrate_" + dialog_id, 0);
 
 
@@ -292,12 +290,8 @@ public class NotificationsController {
                     needVibrate = false;
                 }
                 if (!ApplicationLoader.mainInterfacePaused) {
-                    if (!inAppSounds) {
                         choosenSoundPath = null;
-                    }
-                    if (!inAppVibrate) {
                         needVibrate = false;
-                    }
                 }
             }
 
@@ -387,7 +381,7 @@ public class NotificationsController {
             }
 
             if (!notifyDisabled) {
-                if (ApplicationLoader.mainInterfacePaused || inAppPreview) {
+                if (ApplicationLoader.mainInterfacePaused) {
                     mBuilder.setTicker(lastMessage);
                 }
                 if (choosenSoundPath != null && !choosenSoundPath.equals("NoSound")) {

@@ -8,29 +8,40 @@
 
 package org.telegram.ui;
 
+import android.app.AlertDialog;
+import android.app.NotificationManager;
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.ContactsContract;
+import android.view.MotionEvent;
+import android.view.Surface;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.telegram.android.AndroidUtilities;
 import org.telegram.PhoneFormat.PhoneFormat;
+import org.telegram.android.ContactsController;
 import org.telegram.messenger.ConnectionsManager;
 import org.telegram.messenger.FileLog;
 import org.telegram.android.LocaleController;
 import org.telegram.android.MessagesController;
 import org.telegram.messenger.NotificationCenter;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.messenger.TLRPC;
 import org.telegram.messenger.UserConfig;
 import org.telegram.messenger.Utilities;
+import org.telegram.objects.MessageObject;
 import org.telegram.ui.Views.ActionBar.ActionBarActivity;
 import org.telegram.ui.Views.ActionBar.BaseFragment;
 
@@ -38,7 +49,9 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Map;
+import java.util.Vector;
 
 public class LaunchActivity extends ActionBarActivity implements NotificationCenter.NotificationCenterDelegate, MessagesActivity.MessagesActivityDelegate {
     private boolean finished = false;
@@ -49,6 +62,9 @@ public class LaunchActivity extends ActionBarActivity implements NotificationCen
     private ArrayList<String> documentsOriginalPathsArray = null;
     private ArrayList<TLRPC.User> contactsToSend = null;
     private int currentConnectionState;
+    private String ur_phone = null;
+    private Integer push_user_id = 0;
+    private Vector<AlertDialog> dialogs = new Vector<AlertDialog>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,6 +165,7 @@ public class LaunchActivity extends ActionBarActivity implements NotificationCen
         Integer push_chat_id = 0;
         Integer push_enc_id = 0;
         Integer open_settings = 0;
+        String phone_number = null;
 
         photoPathsArray = null;
         videoPath = null;
@@ -352,7 +369,29 @@ public class LaunchActivity extends ActionBarActivity implements NotificationCen
                     } catch (Exception e) {
                         FileLog.e("tmessages", e);
                     }
-                } else if (intent.getAction().equals("org.telegram.messenger.OPEN_ACCOUNT")) {
+                } else if (Intent.ACTION_SENDTO.equals(intent.getAction())) {
+                    String phone = intent.getData().toString();
+                    if(phone.startsWith("smsto:")) {
+                        phone = phone.replace("smsto:","");
+                    } else if (phone.startsWith("sms:")) {
+                        phone = phone.replace("sms:","");
+                    }
+                    if(phone.contains("%20")){
+                        phone = phone.replace("%20","");
+                    }
+                    if( phone.startsWith("%2B")) { // IF STARTS WITH +
+                        phone = phone.replace("%2B","");
+                    } else {
+                        TLRPC.User user = MessagesController.getInstance().users.get(UserConfig.getClientUserId());
+                        if (user == null) {
+                            user = UserConfig.getCurrentUser();
+                        }
+                        if(user != null) {
+                            phone = user.phone.substring(0,2) + phone;
+                        }
+                    }
+                    phone_number =  phone;
+                }  else if (intent.getAction().equals("org.telegram.messenger.OPEN_ACCOUNT")) {
                     open_settings = 1;
                 }
             }
@@ -380,6 +419,54 @@ public class LaunchActivity extends ActionBarActivity implements NotificationCen
                         push_enc_id = encId;
                     }
                 }
+            }
+        }
+
+        if (phone_number != null) {
+            if (ContactsController.getInstance().contactsLoaded) {
+                push_user_id = 0;
+                Enumeration<TLRPC.User> users = MessagesController.getInstance().users.elements();
+                while (users.hasMoreElements()) {
+                    TLRPC.User u = users.nextElement();
+                    if(u.phone.equals(phone_number)) {
+                        push_user_id = u.id;
+                    }
+                }
+                if (push_user_id != 0) {
+                    NotificationCenter.getInstance().postNotificationName(MessagesController.closeChats);
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage(ApplicationLoader.applicationContext.getString(R.string.InviteUser));
+                    builder.setTitle(ApplicationLoader.applicationContext.getString(R.string.AppName));
+                    final String arg1 = phone_number;
+                    builder.setPositiveButton(ApplicationLoader.applicationContext.getString(R.string.OK), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            try {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", arg1, null));
+                                intent.putExtra("sms_body", ApplicationLoader.applicationContext.getString(R.string.InviteText));
+                                startActivity(intent);
+                            } catch (Exception e) {
+                                FileLog.e("tmessages", e);
+                            }
+                        }
+                    });
+                    builder.setNegativeButton(ApplicationLoader.applicationContext.getString(R.string.Cancel), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            for (AlertDialog dialog : dialogs)
+                                if (dialog.isShowing()) dialog.dismiss();
+                        }
+                    });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.setCanceledOnTouchOutside(true);
+                    dialogs.add(dialog);
+                    dialog.show();
+                }
+            } else {
+                ur_phone = phone_number;
+                NotificationCenter.getInstance().addObserver(this, MessagesController.contactsDidLoaded);
             }
         }
 
@@ -580,6 +667,52 @@ public class LaunchActivity extends ActionBarActivity implements NotificationCen
                 FileLog.e("tmessages", "switch to state " + state);
                 currentConnectionState = state;
                 actionBar.setBackOverlayVisible(currentConnectionState != 0);
+            }
+        } else if (id == MessagesController.contactsDidLoaded) {
+            String phone = ur_phone;
+            if(phone != null){
+                int user_id = 0;
+                Enumeration<TLRPC.User> users = MessagesController.getInstance().users.elements();
+                while (users.hasMoreElements()) {
+                    TLRPC.User u = users.nextElement();
+                    if(u.phone.equals(phone)) {
+                        user_id = u.id;
+                    }
+                }
+                if(user_id == 0) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage(ApplicationLoader.applicationContext.getString(R.string.InviteUser));
+                    builder.setTitle(ApplicationLoader.applicationContext.getString(R.string.AppName));
+                    final String arg1 = phone;
+                    builder.setPositiveButton(ApplicationLoader.applicationContext.getString(R.string.OK), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            try {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", arg1, null));
+                                intent.putExtra("sms_body", ApplicationLoader.applicationContext.getString(R.string.InviteText));
+                                startActivity(intent);
+                            } catch (Exception e) {
+                                FileLog.e("tmessages", e);
+                            }
+                        }
+                    });
+                    builder.setNegativeButton(ApplicationLoader.applicationContext.getString(R.string.Cancel), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            for (AlertDialog dialog : dialogs)
+                                if (dialog.isShowing()) dialog.dismiss();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.setCanceledOnTouchOutside(true);
+                    dialogs.add(dialog);
+                    dialog.show();
+                } else {
+                    NotificationCenter.getInstance().postNotificationName(MessagesController.closeChats);
+                    push_user_id = user_id;
+                    Intent intent = new Intent(this, LaunchActivity.class);
+                    startActivity(intent);
+                }
             }
         }
     }

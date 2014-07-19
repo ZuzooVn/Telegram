@@ -21,7 +21,7 @@ import org.telegram.android.AndroidUtilities;
 import org.telegram.android.MediaController;
 import org.telegram.android.MessagesController;
 import org.telegram.messenger.FileLoader;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.objects.MessageObject;
 import org.telegram.ui.Cells.BaseCell;
 

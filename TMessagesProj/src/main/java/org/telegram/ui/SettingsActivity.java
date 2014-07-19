@@ -48,7 +48,7 @@ import org.telegram.messenger.FileLog;
 import org.telegram.android.MessagesController;
 import org.telegram.android.MessagesStorage;
 import org.telegram.messenger.NotificationCenter;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.messenger.RPCRequest;
 import org.telegram.messenger.UserConfig;
 import org.telegram.messenger.Utilities;
@@ -1058,7 +1058,7 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                     TextView textView = (TextView)view.findViewById(R.id.settings_row_text);
                     try {
                         PackageInfo pInfo = ApplicationLoader.applicationContext.getPackageManager().getPackageInfo(ApplicationLoader.applicationContext.getPackageName(), 0);
-                        textView.setText(String.format(Locale.US, "Telegram for Android v%s (%d)", pInfo.versionName, pInfo.versionCode));
+                        textView.setText(String.format(Locale.US, "Telegram+ for Android v%s (%d)", pInfo.versionName, pInfo.versionCode));
                     } catch (Exception e) {
                         FileLog.e("tmessages", e);
                     }

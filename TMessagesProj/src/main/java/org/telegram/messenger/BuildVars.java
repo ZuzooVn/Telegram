@@ -9,10 +9,10 @@
 package org.telegram.messenger;
 
 public class BuildVars {
-    public static boolean DEBUG_VERSION = true;
-    public static int APP_ID = 2458;
-    public static String APP_HASH = "5bce48dc7d331e62c955669eb7233217";
+    public static boolean DEBUG_VERSION = false;
+    public static int APP_ID = 10085;
+    public static String APP_HASH = "6db812fd4343c0c9ccacd4e27371ef59";
     public static String HOCKEY_APP_HASH = "your-hockeyapp-api-key-here";
-    public static String GCM_SENDER_ID = "760348033672";
-    public static String SEND_LOGS_EMAIL = "email@gmail.com";
+    public static String GCM_SENDER_ID = "653975220639";
+    public static String SEND_LOGS_EMAIL = "zuzoovn@gmail.com";
 }

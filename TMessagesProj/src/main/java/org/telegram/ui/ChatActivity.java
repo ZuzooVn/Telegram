@@ -62,7 +62,7 @@ import org.telegram.messenger.ConnectionsManager;
 import org.telegram.messenger.FileLoader;
 import org.telegram.android.MessagesController;
 import org.telegram.messenger.NotificationCenter;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.messenger.UserConfig;
 import org.telegram.messenger.Utilities;
 import org.telegram.ui.Adapters.BaseFragmentAdapter;
@@ -85,6 +85,7 @@ import org.telegram.ui.Views.TimerButton;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.concurrent.Semaphore;
 
@@ -509,7 +510,10 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                                 }
                             }
                         }
-                        MessagesController.getInstance().deleteMessages(ids, random_ids, currentEncryptedChat);
+
+                        //MessagesController.getInstance().deleteMessages(ids, random_ids, currentEncryptedChat);
+                        //TODO qui utilizzo un mio metodo per cancellare i messaggi, cosi' prima mostro un alert
+                        deleteMessages(ids, random_ids, currentEncryptedChat);
                         actionBarLayer.hideActionMode();
                     } else if (id == forward) {
                         Bundle args = new Bundle();
@@ -797,10 +801,14 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             MessagesController.getInstance().deleteDialog(dialog_id, 0, false);
+                        }
+                    });
+                    builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
                             finishFragment();
                         }
                     });
-                    builder.setNegativeButton(LocaleController.getString("Cancel", R.string.Cancel), null);
                     showAlertDialog(builder);
                 }
             });
@@ -2753,33 +2761,37 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 chatListView.setSelectionFromTop(messages.size() - 1, -100000 - chatListView.getPaddingTop());
             }
         } else if (option == 1) {
-            ArrayList<Integer> ids = new ArrayList<Integer>();
-            ids.add(selectedObject.messageOwner.id);
-            removeUnreadPlane(true);
-            ArrayList<Long> random_ids = null;
-            if (currentEncryptedChat != null && selectedObject.messageOwner.random_id != 0 && selectedObject.type != 10) {
-                random_ids = new ArrayList<Long>();
-                random_ids.add(selectedObject.messageOwner.random_id);
-            }
-            MessagesController.getInstance().deleteMessages(ids, random_ids, currentEncryptedChat);
+                ArrayList<Integer> ids = new ArrayList<Integer>();
+                ids.add(selectedObject.messageOwner.id);
+                removeUnreadPlane(true);
+                ArrayList<Long> random_ids = null;
+                if (currentEncryptedChat != null && selectedObject.messageOwner.random_id != 0 && selectedObject.type != 10) {
+                    random_ids = new ArrayList<Long>();
+                    random_ids.add(selectedObject.messageOwner.random_id);
+                }
+                //TODO qui utilizzo un mio metodo per cancellare i messaggi, cosi' prima mostro un alert
+                deleteMessages(ids, random_ids, currentEncryptedChat);
+                //MessagesController.getInstance().deleteMessages(ids, random_ids, currentEncryptedChat);
+                selectedObject = null;
         } else if (option == 2) {
-            forwaringMessage = selectedObject;
-            Bundle args = new Bundle();
-            args.putBoolean("onlySelect", true);
-            args.putBoolean("serverOnly", true);
-            args.putString("selectAlertString", LocaleController.getString("ForwardMessagesTo", R.string.ForwardMessagesTo));
-            MessagesActivity fragment = new MessagesActivity(args);
-            fragment.setDelegate(this);
-            presentFragment(fragment);
+                forwaringMessage = selectedObject;
+
+                Bundle args = new Bundle();
+                args.putBoolean("onlySelect", true);
+                args.putBoolean("serverOnly", true);
+                args.putString("selectAlertString", LocaleController.getString("ForwardMessagesTo", R.string.ForwardMessagesTo));
+                MessagesActivity fragment = new MessagesActivity(args);
+                fragment.setDelegate(this);
+                presentFragment(fragment);
         } else if (option == 3) {
-            if(android.os.Build.VERSION.SDK_INT < 11) {
-                android.text.ClipboardManager clipboard = (android.text.ClipboardManager)ApplicationLoader.applicationContext.getSystemService(Context.CLIPBOARD_SERVICE);
-                clipboard.setText(selectedObject.messageText);
-            } else {
-                android.content.ClipboardManager clipboard = (android.content.ClipboardManager)ApplicationLoader.applicationContext.getSystemService(Context.CLIPBOARD_SERVICE);
-                android.content.ClipData clip = android.content.ClipData.newPlainText("label", selectedObject.messageText);
-                clipboard.setPrimaryClip(clip);
-            }
+                if(android.os.Build.VERSION.SDK_INT < 11) {
+                    android.text.ClipboardManager clipboard = (android.text.ClipboardManager)ApplicationLoader.applicationContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                    clipboard.setText(selectedObject.messageText);
+                } else {
+                    android.content.ClipboardManager clipboard = (android.content.ClipboardManager)ApplicationLoader.applicationContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                    android.content.ClipData clip = android.content.ClipData.newPlainText("label", selectedObject.messageText);
+                    clipboard.setPrimaryClip(clip);
+                }
         } else if (option == 4) {
             String fileName = selectedObject.getFileName();
             if (selectedObject.type == 3) {
@@ -2821,6 +2833,29 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
         selectedObject = null;
     }
 
+
+    public void deleteMessages(ArrayList<Integer> ids, ArrayList<Long> random_ids, TLRPC.EncryptedChat currentEncryptedChat) {
+        final ArrayList<Integer> finalIds = ids;
+        final ArrayList<Long> finalRandomIds = random_ids;
+        final TLRPC.EncryptedChat finalCurrentEncryptedChat = currentEncryptedChat;
+        AlertDialog.Builder alertDelete = new AlertDialog.Builder(getParentActivity());
+        alertDelete.setTitle(R.string.Alert);
+        alertDelete.setMessage(R.string.MessagesDeleteAlert);
+        alertDelete.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MessagesController.getInstance().deleteMessages(finalIds, finalRandomIds, finalCurrentEncryptedChat);
+            }
+        });
+        alertDelete.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                       updateVisibleRows();
+                        }
+                });
+        showAlertDialog(alertDelete);
+
+    }
     @Override
     public void didSelectFile(DocumentSelectActivity activity, String path) {
         activity.finishFragment();

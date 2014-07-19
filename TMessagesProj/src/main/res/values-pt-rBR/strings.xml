@@ -3,7 +3,7 @@
 <!--https://www.transifex.com/projects/p/telegram/language/pt_BR/members/-->
 
 <resources>
-    <string name="AppName">Telegram</string>
+    <string name="AppName">Telegram+</string>
 
     <string name="LanguageName">Português (Brasil)</string>
     <string name="LanguageNameInEnglish">Portuguese (Brazil)</string>
@@ -77,7 +77,7 @@
     <string name="Attach">Anexar</string>
     <string name="IsTyping">está escrevendo...</string>
     <string name="AreTyping">estão escrevendo...</string>
-    <string name="GotAQuestion">Tem alguma dúvida\nsobre o Telegram?</string>
+    <string name="GotAQuestion">Tem alguma dúvida\nsobre o Telegram+?</string>
     <string name="ChatTakePhoto">Tirar foto</string>
     <string name="ChatGallery">Galeria</string>
     <string name="ChatLocation">Localização</string>
@@ -149,14 +149,14 @@
     <string name="NotificationGroupKickMember">%1$s removeu %3$s do grupo %2$s</string>
     <string name="NotificationGroupKickYou">%1$s removeu você do grupo %2$s</string>
     <string name="NotificationGroupLeftMember">%1$s saiu do grupo %2$s</string>
-    <string name="NotificationContactJoined">%1$s entrou para o Telegram!</string>
-    <string name="NotificationUnrecognizedDevice">%1$s,\nNós detectamos um acesso à sua conta de um novo dispositivo em %2$s\n\nDispositivo: %3$s\nLocalização: %4$s\n\nCaso não tenha sido você, vá para Configurações – Encerrar todas as sessões.\n\nObrigado,\nA equipe do Telegram</string>
+    <string name="NotificationContactJoined">%1$s entrou para o Telegram+!</string>
+    <string name="NotificationUnrecognizedDevice">%1$s,\nNós detectamos um acesso à sua conta de um novo dispositivo em %2$s\n\nDispositivo: %3$s\nLocalização: %4$s\n\nCaso não tenha sido você, vá para Configurações – Encerrar todas as sessões.\n\nObrigado,\nA equipe do Telegram+</string>
     <string name="NotificationContactNewPhoto">%1$s atualizou a foto do perfil</string>
 
     <!--contacts view-->
     <string name="SelectContact">Selecionar Contato</string>
     <string name="NoContacts">Ainda não há contatos</string>
-    <string name="InviteText">Ei, vamos mudar para o Telegram: http://telegram.org/dl2</string>
+    <string name="InviteText">Ei, vamos mudar para o Telegram+: http://goo.gl/y9fEqX</string>
     <string name="TodayAt">hoje à(s)</string>
     <string name="YesterdayAt">ontem à(s)</string>
     <string name="OtherAt">em</string>
@@ -199,7 +199,7 @@
     <string name="PHONE">TELEFONE</string>
     <string name="StartEncryptedChat">Iniciar Conversa Secreta</string>
     <string name="CreateEncryptedChatError">Ocorreu um erro.</string>
-    <string name="CreateEncryptedChatOutdatedError">Não é possível criar uma conversa secreta com %1$s.\n\n%2$s está usando uma versão antiga do Telegram e precisa ser atualizada.</string>
+    <string name="CreateEncryptedChatOutdatedError">Não é possível criar uma conversa secreta com %1$s.\n\n%2$s está usando uma versão antiga do Telegram+ e precisa ser atualizada.</string>
     <string name="SecretTitle">Conversa Secreta</string>
     <string name="EncryptionKey">Chave criptográfica</string>
     <string name="MessageLifetime">Tempo de autodestruição</string>
@@ -230,6 +230,14 @@
     <string name="InAppSounds">Sons no Aplicativo</string>
     <string name="InAppVibrate">Vibração no Aplicativo</string>
     <string name="Vibrate">Vibrar</string>
+    <string name="VibrateSpeed">Vibration speed</string>
+    <string name="VibrateSpeedTitle">Pick a speed</string>
+    <string name="VibrateSpeedFast">Fast</string>
+    <string name="VibrateSpeedMedium">Medium</string>
+    <string name="VibrateSpeedSlow">Slow</string>
+    <string name="VibrateSpeedDefault">Standard</string>
+    <string name="VibrateCount">Vibrations number</string>
+    <string name="VibrateCountTitle">Pick the number of vibrations</string>
     <string name="InAppPreview">Visualização no Aplicativo</string>
     <string name="Reset">LIMPAR</string>
     <string name="ResetAllNotifications">Limpar todas as notificações</string>
@@ -251,12 +259,12 @@
     <string name="AutomaticPhotoDownloadGroups">Grupos</string>
     <string name="AutomaticPhotoDownloadPrivateChats">Conversas Privadas</string>
     <string name="Events">EVENTOS</string>
-    <string name="ContactJoined">Contato entrou para o Telegram</string>
+    <string name="ContactJoined">Contato entrou para o Telegram+</string>
     <string name="Pebble">PEBBLE</string>
     <string name="Language">Idioma</string>
-    <string name="AskAQuestionInfo">Por favor compreenda que o Telegram é feito por voluntários. Tentamos responder o mais rápido possível, mas pode demorar um pouco. <![CDATA[<br><br>]]>Por favor acesse o <![CDATA[<a href="http://telegram.org/faq#general">FAQ do Telegram</a>]]>: temos respostas para algumas questões, assim como dicas importantes à <![CDATA[<a href="http://telegram.org/faq#troubleshooting">resolução de problemas</a>]]>.</string>
+    <string name="AskAQuestionInfo">Por favor compreenda que o Telegram+ é feito por voluntários. Tentamos responder o mais rápido possível, mas pode demorar um pouco. <![CDATA[<br><br>]]>Por favor acesse o <![CDATA[<a href="http://telegram.org/faq#general">FAQ do Telegram+</a>]]>: temos respostas para algumas questões, assim como dicas importantes à <![CDATA[<a href="http://telegram.org/faq#troubleshooting">resolução de problemas</a>]]>.</string>
     <string name="AskButton">Pergunte a um voluntário</string>
-    <string name="TelegramFaq">FAQ do Telegram</string>
+    <string name="TelegramFaq">FAQ do Telegram+</string>
     <string name="TelegramFaqUrl">https://telegram.org/faq</string>
     <string name="DeleteLocalization">Apagar localização?</string>
     <string name="IncorrectLocalization">Arquivo de localização incorreto</string>
@@ -318,6 +326,8 @@
     <string name="OpenPhoto"> Abrir foto</string>
     <string name="Set">Aplicar</string>
     <string name="OK">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <!--messages-->
     <string name="ActionKickUser">un1 removeu un2</string>
@@ -336,7 +346,7 @@
     <string name="ActionYouCreateGroup">Você criou o grupo</string>
     <string name="ActionKickUserYou">un1 removeu você</string>
     <string name="ActionAddUserYou">un1 adicionou você</string>
-    <string name="UnsuppotedMedia">Esta mensagem não é suportada na sua versão do Telegram. Para visualiza-la atualize seu aplicativo em http://telegram.org/update</string>
+    <string name="UnsuppotedMedia">Esta mensagem não é suportada na sua versão do Telegram+. Para visualiza-la atualize seu aplicativo em http://telegram.org/update</string>
     <string name="AttachPhoto">Foto</string>
     <string name="AttachVideo">Vídeo</string>
     <string name="AttachLocation">Localização</string>
@@ -358,7 +368,7 @@
     <string name="NoPlayerInstalled">Você não possui um reprodutor de vídeo, instale um para continuar</string>
     <string name="NoMailInstalled">Por favor, envie um email para sms@telegram.org e explique seu problema.</string>
     <string name="NoHandleAppInstalled">Você não possui algum aplicativo que pode lidar com o tipo MIME \'%1$s\'. Por favor, instale um para continuar</string>
-    <string name="InviteUser">Este usuário ainda não possui Telegram, deseja enviar um convite?</string>
+    <string name="InviteUser">Este usuário ainda não possui Telegram+, deseja enviar um convite?</string>
     <string name="AreYouSure">Você tem certeza?</string>
     <string name="AddContactQ">Adicionar contato?</string>
     <string name="AddToTheGroup">Adicionar %1$s para o grupo?\n\nNúmero das últimas mensagens para encaminhar:</string>
@@ -375,9 +385,11 @@
     <string name="AreYouSureDeleteContact">Você tem certeza que deseja deletar este contato?</string>
     <string name="AreYouSureSecretChat">Você tem certeza que deseja iniciar uma conversa secreta?</string>
     <string name="ForwardFromMyName">encaminhar pelo meu nome</string>
+    <string name="ConversationDeleteAlert">You\'re deleting all messages in conversation. Are you sure?</string>
+    <string name="MessagesDeleteAlert">You\'re deleting one or more messages. Are you sure?</string>
 
     <!--Intro view-->
-    <string name="Page1Title">Telegram</string>
+    <string name="Page1Title">Telegram+</string>
     <string name="Page2Title">Rápido</string>
     <string name="Page3Title">Gratuito</string>
     <string name="Page4Title">Seguro</string>
@@ -385,12 +397,12 @@
     <string name="Page6Title">Baseado na nuvem</string>
     <string name="Page7Title">Privado</string>
     <string name="Page1Message">Bem-vindo à era das mensagens rápidas e seguras</string>
-    <string name="Page2Message"><![CDATA[<b>Telegram</b>]]> envia mensagens mais rapidamente do que qualquer outro aplicativo</string>
-    <string name="Page3Message"><![CDATA[<b>Telegram</b>]]> será gratuito para sempre. Sem propaganda. Sem taxa de assinatura</string>
-    <string name="Page4Message"><![CDATA[<b>Telegram</b>]]> mantém suas mensagens seguras contra ataques de hackers</string>
-    <string name="Page5Message"><![CDATA[<b>Telegram</b>]]> não tem limites para o tamanho de suas mídias e conversas</string>
-    <string name="Page6Message"><![CDATA[<b>Telegram</b>]]> permite que você acesse suas mensagens a partir de vários dispositivos</string>
-    <string name="Page7Message">As mensagens do <![CDATA[<b>Telegram</b>]]> são fortemente criptografadas e podem se autodestruir</string>
+    <string name="Page2Message"><![CDATA[<b>Telegram+</b>]]> envia mensagens mais rapidamente do que<![CDATA[<br/>]]>qualquer outro aplicativo</string>
+    <string name="Page3Message"><![CDATA[<b>Telegram+</b>]]> será gratuito para sempre. Sem propaganda.<![CDATA[<br/>]]>Sem taxa de assinatura</string>
+    <string name="Page4Message"><![CDATA[<b>Telegram+</b>]]> mantém suas mensagens seguras<![CDATA[<br/>]]>contra ataques de hackers</string>
+    <string name="Page5Message"><![CDATA[<b>Telegram+</b>]]> não tem limites para o tamanho de<![CDATA[<br/>]]>suas mídias e conversas</string>
+    <string name="Page6Message"><![CDATA[<b>Telegram+</b>]]> permite que você acesse suas mensagens<![CDATA[<br/>]]>a partir de vários dispositivos</string>
+    <string name="Page7Message">As mensagens do <![CDATA[<b>Telegram+</b>]]> são fortemente criptografadas<![CDATA[<br/>]]>e podem se autodestruir</string>
     <string name="StartMessaging">Comece a conversar</string>
 
     <!--plurals-->
@@ -427,4 +439,8 @@
 
     <!--Don't change this! Not for localization!-->
     <string name="CacheTag">CACHE_TAG</string>
+    <string name="changelog_full_title">Change Log</string>
+    <string name="changelog_title">What\'s New</string>
+    <string name="changelog_ok_button">OK</string>
+    <string name="changelog_show_full">more...</string>
 </resources>

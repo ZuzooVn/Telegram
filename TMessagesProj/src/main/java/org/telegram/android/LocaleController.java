@@ -20,9 +20,9 @@ import android.util.Xml;
 
 import org.telegram.messenger.ConnectionsManager;
 import org.telegram.messenger.FileLog;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.messenger.TLRPC;
-import org.telegram.messenger.Utilities;
+import org.telegram.messenger.Utilities;	
 import org.telegram.ui.ApplicationLoader;
 import org.xmlpull.v1.XmlPullParser;
 
@@ -214,6 +214,14 @@ public class LocaleController {
         localeInfo.pathToFile = null;
         sortedLanguages.add(localeInfo);
         languagesDict.put(localeInfo.shortName, localeInfo);
+
+//        localeInfo = new LocaleInfo();
+//        localeInfo.name = "עברית";
+//        localeInfo.nameEnglish = "Hebrew";
+//        localeInfo.shortName = "iw";
+//        localeInfo.pathToFile = null;
+//        sortedLanguages.add(localeInfo);
+//        languagesDict.put(localeInfo.shortName, localeInfo);
 
         loadOtherLanguages();
 

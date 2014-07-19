@@ -43,7 +43,9 @@ public class NotificationCenter {
             broadcasting = true;
             ArrayList<Object> objects = observers.get(id);
             if (objects != null) {
-                for (Object obj : objects) {
+                ArrayList<Object> clone = (ArrayList<Object>)objects.clone();
+
+                for (Object obj : clone) {
                     ((NotificationCenterDelegate)obj).didReceivedNotification(id, args);
                 }
             }

@@ -22,7 +22,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.telegram.android.AndroidUtilities;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
+
 import org.telegram.messenger.Utilities;
 
 public class ActionBarLayer extends FrameLayout {

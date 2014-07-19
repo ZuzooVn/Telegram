@@ -3,7 +3,7 @@
 <!--Translation by Borja Campina, Edited by Victor Espinoza and Francisco Vila-->
 
 <resources>
-    <string name="AppName">Telegram</string>
+    <string name="AppName">Telegram+</string>
 
     <string name="LanguageName">Español</string>
     <string name="LanguageNameInEnglish">Spanish</string>
@@ -77,7 +77,7 @@
     <string name="Attach">Adjuntar</string>
     <string name="IsTyping">está escribiendo...</string>
     <string name="AreTyping">están escribiendo...</string>
-    <string name="GotAQuestion">¿Tienes una pregunta\nsobre Telegram?</string>
+    <string name="GotAQuestion">¿Tienes una pregunta\nsobre Telegram+?</string>
     <string name="ChatTakePhoto">Hacer foto</string>
     <string name="ChatGallery">Galería</string>
     <string name="ChatLocation">Ubicación</string>
@@ -149,14 +149,14 @@
     <string name="NotificationGroupKickMember">%1$s expulsó a %3$s del grupo %2$s</string>
     <string name="NotificationGroupKickYou">%1$s te ha expulsado del grupo %2$s</string>
     <string name="NotificationGroupLeftMember">%1$s abandonó el grupo %2$s</string>
-    <string name="NotificationContactJoined">¡%1$s se unió a Telegram!</string>
-    <string name="NotificationUnrecognizedDevice">%1$s,\nHemos detectado una conexión a tu cuenta desde un nuevo dispositivo el %2$s\n\nDispositivo: %3$s\nUbicación: %4$s\n\nSi no eras tú, puedes ir a Ajustes - Cerrar todas las otras sesiones.\n\nGracias,\nEl equipo de Telegram</string>
+    <string name="NotificationContactJoined">¡%1$s se unió a Telegram+!</string>
+    <string name="NotificationUnrecognizedDevice">%1$s,\nHemos detectado una conexión a tu cuenta desde un nuevo dispositivo el %2$s\n\nDispositivo: %3$s\nUbicación: %4$s\n\nSi no eras tú, puedes ir a Ajustes - Cerrar todas las otras sesiones.\n\nGracias,\nEl equipo de Telegram+</string>
     <string name="NotificationContactNewPhoto">%1$s actualizó su foto de perfil</string>
 
     <!--contacts view-->
     <string name="SelectContact">Seleccionar contacto</string>
     <string name="NoContacts">No hay contactos aún</string>
-    <string name="InviteText">Oye, cambiémonos a Telegram: http://telegram.org/dl2</string>
+    <string name="InviteText">Oye, cambiémonos a Telegram+: http://goo.gl/y9fEqX</string>
     <string name="TodayAt">hoy a las</string>
     <string name="YesterdayAt">ayer a las</string>
     <string name="OtherAt">a las</string>
@@ -230,6 +230,14 @@
     <string name="InAppSounds">Sonidos en la app</string>
     <string name="InAppVibrate">Vibración en la app</string>
     <string name="Vibrate">Vibración</string>
+    <string name="VibrateSpeed">Vibration speed</string>
+    <string name="VibrateSpeedTitle">Pick a speed</string>
+    <string name="VibrateSpeedFast">Fast</string>
+    <string name="VibrateSpeedMedium">Medium</string>
+    <string name="VibrateSpeedSlow">Slow</string>
+    <string name="VibrateSpeedDefault">Standard</string>
+    <string name="VibrateCount">Vibrations number</string>
+    <string name="VibrateCountTitle">Pick the number of vibrations</string>
     <string name="InAppPreview">Vista previa en la app</string>
     <string name="Reset">RESTABLECER</string>
     <string name="ResetAllNotifications">Restablecer todas las notificaciones</string>
@@ -251,7 +259,7 @@
     <string name="AutomaticPhotoDownloadGroups">Grupos</string>
     <string name="AutomaticPhotoDownloadPrivateChats">Chats</string>
     <string name="Events">EVENTOS</string>
-    <string name="ContactJoined">Un contacto se unió a Telegram</string>
+    <string name="ContactJoined">Un contacto se unió a Telegram+</string>
     <string name="Pebble">PEBBLE</string>
     <string name="Language">Idioma</string>
     <string name="AskAQuestionInfo">Por favor, ten en cuenta que el Soporte de Telegram está hecho por voluntarios. Intentamos responder lo antes posible, pero puede tomar un tiempo.<![CDATA[<br><br>]]>Por favor, echa un vistazo a las <![CDATA[<a href=“http://telegram.org/faq/es”>Preguntas Frecuentes de Telegram</a>]]>: tienen importantes <![CDATA[<a href=“http://telegram.org/faq/es#solucin-de-problemas”>soluciones a problemas</a>]]> y respuestas para la mayoría de las preguntas.</string>
@@ -318,6 +326,8 @@
     <string name="OpenPhoto">Abrir foto</string>
     <string name="Set">Establecer</string>
     <string name="OK">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <!--messages-->
     <string name="ActionKickUser">un1 expulsó a un2</string>
@@ -375,9 +385,11 @@
     <string name="AreYouSureDeleteContact">¿Estás seguro/a que quieres eliminar este contacto?</string>
     <string name="AreYouSureSecretChat">¿Estás seguro/a que quieres iniciar un chat secreto?</string>
     <string name="ForwardFromMyName">reenviar desde mi nombre</string>
+    <string name="ConversationDeleteAlert">You\'re deleting all messages in conversation. Are you sure?</string>
+    <string name="MessagesDeleteAlert">You\'re deleting one or more messages. Are you sure?</string>
 
     <!--Intro view-->
-    <string name="Page1Title">Telegram</string>
+    <string name="Page1Title">Telegram+</string>
     <string name="Page2Title">Rápida</string>
     <string name="Page3Title">Gratis</string>
     <string name="Page4Title">Segura</string>
@@ -385,11 +397,11 @@
     <string name="Page6Title">Basada en la nube</string>
     <string name="Page7Title">Privada</string>
     <string name="Page1Message">Bienvenidos a la era de la mensajería rápida y segura.</string>
-    <string name="Page2Message"><![CDATA[<b>Telegram</b>]]> entrega mensajes más rápido que<![CDATA[<br/>]]>cualquier otra aplicación.</string>
-    <string name="Page3Message"><![CDATA[<b>Telegram</b>]]> es gratis para siempre. Sin publicidad.<![CDATA[<br/>]]>Sin cuotas de suscripción.</string>
-    <string name="Page4Message"><![CDATA[<b>Telegram</b>]]> mantiene tus mensajes<![CDATA[<br/>]]>a salvo del ataque de hackers.</string>
-    <string name="Page5Message"><![CDATA[<b>Telegram</b>]]> no tiene límites en el tamaño de tus<![CDATA[<br/>]]>chats y archivos.</string>
-    <string name="Page6Message"><![CDATA[<b>Telegram</b>]]> te permite acceder a tus mensajes<![CDATA[<br/>]]>desde múltiples dispositivos.</string>
+    <string name="Page2Message"><![CDATA[<b>Telegram+</b>]]> entrega mensajes más rápido que<![CDATA[<br/>]]>cualquier otra aplicación.</string>
+    <string name="Page3Message"><![CDATA[<b>Telegram+</b>]]> es gratis para siempre. Sin publicidad.<![CDATA[<br/>]]>Sin cuotas de suscripción.</string>
+    <string name="Page4Message"><![CDATA[<b>Telegram+</b>]]> mantiene tus mensajes<![CDATA[<br/>]]>a salvo del ataque de hackers.</string>
+    <string name="Page5Message"><![CDATA[<b>Telegram+</b>]]> no tiene límites en el tamaño de tus<![CDATA[<br/>]]>chats y archivos.</string>
+    <string name="Page6Message"><![CDATA[<b>Telegram+</b>]]> te permite acceder a tus mensajes<![CDATA[<br/>]]>desde múltiples dispositivos.</string>
     <string name="Page7Message">Los mensajes de <![CDATA[<b>Telegram</b>]]> están fuertemente<![CDATA[<br/>]]>cifrados y se pueden autodestruir.</string>
     <string name="StartMessaging">Empieza a conversar</string>
 
@@ -427,4 +439,8 @@
 
     <!--Don't change this! Not for localization!-->
     <string name="CacheTag">CACHE_TAG</string>
+    <string name="changelog_full_title">Change Log</string>
+    <string name="changelog_title">What\'s New</string>
+    <string name="changelog_ok_button">OK</string>
+    <string name="changelog_show_full">more...</string>
 </resources>

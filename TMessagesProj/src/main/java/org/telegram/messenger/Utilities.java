@@ -25,6 +25,8 @@ import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.util.Base64;
 
+import com.andguru.telegram.messenger.R;
+
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.CrashManagerListener;
 import net.hockeyapp.android.UpdateManager;

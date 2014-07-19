@@ -41,7 +41,7 @@ import org.telegram.android.NotificationsController;
 import org.telegram.messenger.ConnectionsManager;
 import org.telegram.messenger.FileLog;
 import org.telegram.messenger.NotificationCenter;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.messenger.TLRPC;
 import org.telegram.messenger.Utilities;
 import org.telegram.objects.MessageObject;

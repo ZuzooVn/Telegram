@@ -19,12 +19,14 @@ import android.provider.BaseColumns;
 import android.provider.ContactsContract;
 import android.util.SparseArray;
 
+import com.andguru.telegram.messenger.R;
+
 import org.telegram.PhoneFormat.PhoneFormat;
 import org.telegram.messenger.BuildVars;
 import org.telegram.messenger.ConnectionsManager;
 import org.telegram.messenger.FileLog;
 import org.telegram.messenger.NotificationCenter;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.messenger.RPCRequest;
 import org.telegram.messenger.TLObject;
 import org.telegram.messenger.TLRPC;
@@ -1564,6 +1566,55 @@ public class ContactsController {
             }
         }, true, RPCRequest.RPCRequestClassGeneric | RPCRequest.RPCRequestClassFailOnServerErrors | RPCRequest.RPCRequestClassCanCompress);
     }
+
+    /**
+     * Fetch 100 first blocked contacts from server
+     */
+    public void addBlockedContacts() {
+        try {
+            TLRPC.TL_contacts_getBlocked req = new TLRPC.TL_contacts_getBlocked();
+            req.offset = 0;
+            req.limit = 100;
+            long requestId = ConnectionsManager.getInstance().performRpc(req, new RPCRequest.RPCRequestDelegate() {
+                @Override
+                public void run(TLObject response, TLRPC.TL_error error) {
+                    final TLRPC.contacts_Blocked res = (TLRPC.contacts_Blocked) response;
+                    for (TLRPC.User user : res.users) {
+                        MessagesController.getInstance().users.put(user.id, user);
+                    }
+                    MessagesStorage.getInstance().putBlockedContacts(res.blocked,1);
+                }
+            }, true, RPCRequest.RPCRequestClassGeneric);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * If more than 100 blocked contacts, this method is called until all of them have been fetched.
+     * @param times Number of times blocked contacts have been fetched from server during the update.
+     */
+    public void addBlockedContactsTimes(final int times) {
+        try {
+            TLRPC.TL_contacts_getBlocked req = new TLRPC.TL_contacts_getBlocked();
+            req.offset = 100*(times-1);
+            req.limit = 100*times;
+            long requestId = ConnectionsManager.getInstance().performRpc(req, new RPCRequest.RPCRequestDelegate() {
+                @Override
+                public void run(TLObject response, TLRPC.TL_error error) {
+                    final TLRPC.contacts_Blocked res = (TLRPC.contacts_Blocked) response;
+                    for (TLRPC.User user : res.users) {
+                        MessagesController.getInstance().users.put(user.id, user);
+                    }
+                    MessagesStorage.getInstance().putBlockedContacts(res.blocked, times);
+                }
+            }, true, RPCRequest.RPCRequestClassGeneric);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public void deleteContact(final ArrayList<TLRPC.User> users) {
         if (users == null || users.isEmpty()) {

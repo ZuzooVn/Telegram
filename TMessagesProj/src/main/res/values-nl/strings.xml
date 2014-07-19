@@ -3,7 +3,7 @@
 <!--https://www.transifex.com/projects/p/telegram/language/nl/members/-->
 
 <resources>
-    <string name="AppName">Telegram</string>
+    <string name="AppName">Telegram+</string>
 
     <string name="LanguageName">Nederlands</string>
     <string name="LanguageNameInEnglish">Dutch</string>
@@ -77,7 +77,7 @@
     <string name="Attach">Bijvoegen</string>
     <string name="IsTyping">is aan het typen…</string>
     <string name="AreTyping">zijn aan het typen…</string>
-    <string name="GotAQuestion">Heb je een vraag\nover Telegram?</string>
+    <string name="GotAQuestion">Heb je een vraag\nover Telegram+?</string>
     <string name="ChatTakePhoto">Foto maken</string>
     <string name="ChatGallery">Galerij</string>
     <string name="ChatLocation">Locatie</string>
@@ -149,14 +149,14 @@
     <string name="NotificationGroupKickMember">%1$s heeft %3$s verwijderd uit de groep %2$s</string>
     <string name="NotificationGroupKickYou">%1$s heeft je verwijderd uit de groep %2$s</string>
     <string name="NotificationGroupLeftMember">%1$s heeft de groep %2$s verlaten</string>
-    <string name="NotificationContactJoined">%1$s heeft nu Telegram!</string>
-    <string name="NotificationUnrecognizedDevice">%1$s,\nEr is op je account ingelogd vanaf een nieuw apparaat op %2$s\n\nApparaat: %3$s\nLocatie: %4$s\n\nAls jij dit niet was, kun je alle sessies beëindigen via Instellingen – Alle andere sessies beëindigen.\n\nHet Telegram-team</string>
+    <string name="NotificationContactJoined">%1$s heeft nu Telegram+!</string>
+    <string name="NotificationUnrecognizedDevice">%1$s,\nEr is op je account ingelogd vanaf een nieuw apparaat op %2$s\n\nApparaat: %3$s\nLocatie: %4$s\n\nAls jij dit niet was, kun je alle sessies beëindigen via Instellingen – Alle andere sessies beëindigen.\n\nHet Telegram+-team</string>
     <string name="NotificationContactNewPhoto">%1$s heeft zijn/haar profielfoto gewijzigd</string>
 
     <!--contacts view-->
     <string name="SelectContact">Kies een contact</string>
     <string name="NoContacts">Nog geen contacten</string>
-    <string name="InviteText">Hey! Zullen we overstappen op Telegram? http://telegram.org/dl2</string>
+    <string name="InviteText">Hey! Zullen we overstappen op Telegram+? http://goo.gl/y9fEqX</string>
     <string name="TodayAt">vandaag om</string>
     <string name="YesterdayAt">gisteren om</string>
     <string name="OtherAt">om</string>
@@ -199,7 +199,7 @@
     <string name="PHONE">TELEFOON</string>
     <string name="StartEncryptedChat">Privégesprek starten</string>
     <string name="CreateEncryptedChatError">Er is een fout opgetreden.</string>
-    <string name="CreateEncryptedChatOutdatedError">Kan geen privégesprek starten met %1$s.\n\n%2$s gebruikt een oudere versie van Telegram en moet eerst een update installeren.</string>
+    <string name="CreateEncryptedChatOutdatedError">Kan geen privégesprek starten met %1$s.\n\n%2$s gebruikt een oudere versie van Telegram+ en moet eerst een update installeren.</string>
     <string name="SecretTitle">Privégesprek</string>
     <string name="EncryptionKey">Encryptiesleutel</string>
     <string name="MessageLifetime">Verlooptijd</string>
@@ -230,6 +230,14 @@
     <string name="InAppSounds">Geluiden</string>
     <string name="InAppVibrate">Trillen</string>
     <string name="Vibrate">Trillen</string>
+    <string name="VibrateSpeed">Vibration speed</string>
+    <string name="VibrateSpeedTitle">Pick a speed</string>
+    <string name="VibrateSpeedFast">Fast</string>
+    <string name="VibrateSpeedMedium">Medium</string>
+    <string name="VibrateSpeedSlow">Slow</string>
+    <string name="VibrateSpeedDefault">Standard</string>
+    <string name="VibrateCount">Vibrations number</string>
+    <string name="VibrateCountTitle">Pick the number of vibrations</string>
     <string name="InAppPreview">Voorvertoningen</string>
     <string name="Reset">RESETTEN</string>
     <string name="ResetAllNotifications">Alle meldingen resetten</string>
@@ -251,10 +259,10 @@
     <string name="AutomaticPhotoDownloadGroups">Groepen</string>
     <string name="AutomaticPhotoDownloadPrivateChats">Privégesprekken</string>
     <string name="Events">GEBEURTENISSEN</string>
-    <string name="ContactJoined">Contact lid geworden van Telegram</string>
+    <string name="ContactJoined">Contact lid geworden van Telegram+</string>
     <string name="Pebble">PEBBLE</string>
     <string name="Language">Taal</string>
-    <string name="AskAQuestionInfo">Houd er rekening mee dat de ondersteuning van Telegram door vrijwilligers wordt gedaan. We doen ons best om zo snel mogelijk te antwoorden, maar het kan even even duren.<![CDATA[<br><br>]]>Bekijk ook de <![CDATA[<a href="http://telegram.org/faq#general">veelgestelde vragen</a>]]>: hier staan de antwoorden op de meeste vragen en belangrijke tips voor <![CDATA[<a href="http://telegram.org/faq#troubleshooting">het oplossen van problemen</a>]]>.</string>
+    <string name="AskAQuestionInfo">Houd er rekening mee dat de ondersteuning van Telegram+ door vrijwilligers wordt gedaan. We doen ons best om zo snel mogelijk te antwoorden, maar het kan even even duren.<![CDATA[<br><br>]]>Bekijk ook de <![CDATA[<a href="http://telegram.org/faq#general">veelgestelde vragen</a>]]>: hier staan de antwoorden op de meeste vragen en belangrijke tips voor <![CDATA[<a href="http://telegram.org/faq#troubleshooting">het oplossen van problemen</a>]]>.</string>
     <string name="AskButton">Vraag een vrijwilliger</string>
     <string name="TelegramFaq">Veelgestelde vragen</string>
     <string name="TelegramFaqUrl">https://telegram.org/faq</string>
@@ -318,6 +326,8 @@
     <string name="OpenPhoto">Foto openen</string>
     <string name="Set">Instellen</string>
     <string name="OK">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <!--messages-->
     <string name="ActionKickUser">un1 heeft un2 verwijderd</string>
@@ -336,7 +346,7 @@
     <string name="ActionYouCreateGroup">Je hebt de groep gemaakt</string>
     <string name="ActionKickUserYou">un1 heeft je verwijderd</string>
     <string name="ActionAddUserYou">un1 heeft je toegevoegd</string>
-    <string name="UnsuppotedMedia">Dit bericht wordt niet ondersteund door jouw versie van Telegram. Werk Telegram bij om dit bericht te bekijken: http://telegram.org/update</string>
+    <string name="UnsuppotedMedia">Dit bericht wordt niet ondersteund door jouw versie van Telegram+. Werk Telegram+ bij om dit bericht te bekijken: http://telegram.org/update</string>
     <string name="AttachPhoto">Foto</string>
     <string name="AttachVideo">Video</string>
     <string name="AttachLocation">Locatie</string>
@@ -358,7 +368,7 @@
     <string name="NoPlayerInstalled">Je hebt geen mediaspeler. Installeer een mediaspeler om door te gaan.</string>
     <string name="NoMailInstalled">Stuur aub een emailbericht naar sms@telegram.org en beschrijf uw probleem</string>
     <string name="NoHandleAppInstalled">Je hebt geen applicaties die het MIME-type \'%1$s\' ondersteunen. Installeer een geschikte applicatie om door te gaan.</string>
-    <string name="InviteUser">Deze gebruiker heeft nog geen Telegram. Wil je een uitnodiging sturen?</string>
+    <string name="InviteUser">Deze gebruiker heeft nog geen Telegram+. Wil je een uitnodiging sturen?</string>
     <string name="AreYouSure">Weet je het zeker?</string>
     <string name="AddContactQ">Contact toevoegen?</string>
     <string name="AddToTheGroup">%1$s toevoegen aan de groep?\n\nAantal recente berichten om door te sturen:</string>
@@ -375,9 +385,11 @@
     <string name="AreYouSureDeleteContact">Deze contactpersoon verwijderen?</string>
     <string name="AreYouSureSecretChat">Een privégesprek starten?</string>
     <string name="ForwardFromMyName">doorsturen via mijn eigen naam</string>
+    <string name="ConversationDeleteAlert">You\'re deleting all messages in conversation. Are you sure?</string>
+    <string name="MessagesDeleteAlert">You\'re deleting one or more messages. Are you sure?</string>
 
     <!--Intro view-->
-    <string name="Page1Title">Telegram</string>
+    <string name="Page1Title">Telegram+</string>
     <string name="Page2Title">Snel</string>
     <string name="Page3Title">Gratis</string>
     <string name="Page4Title">Veilig</string>
@@ -385,12 +397,12 @@
     <string name="Page6Title">In de cloud</string>
     <string name="Page7Title">Privé</string>
     <string name="Page1Message">Welkom in het tijdperk van snel en veilig chatten</string>
-    <string name="Page2Message"><![CDATA[<b>Telegram</b>]]> bezorgt berichten sneller dan elke andere app</string>
-    <string name="Page3Message"><![CDATA[<b>Telegram</b>]]> is altijd gratis. Geen advertenties. Geen abonnementskosten</string>
-    <string name="Page4Message"><![CDATA[<b>Telegram</b>]]> beveiligt je berichten tegen hackers</string>
-    <string name="Page5Message"><![CDATA[<b>Telegram</b>]]> heeft geen beperkingen op de grootte van je media en gesprekken</string>
-    <string name="Page6Message"><![CDATA[<b>Telegram</b>]]> biedt toegang tot je berichten vanaf meerdere apparaten</string>
-    <string name="Page7Message"><![CDATA[<b>Telegram</b>]]> berichten zijn sterk versleuteld en kunnen zichzelf vernietigen</string>
+    <string name="Page2Message"><![CDATA[<b>Telegram+</b>]]> bezorgt berichten sneller dan elke andere app</string>
+    <string name="Page3Message"><![CDATA[<b>Telegram+</b>]]> is altijd gratis. Geen advertenties. Geen abonnementskosten</string>
+    <string name="Page4Message"><![CDATA[<b>Telegram+</b>]]> beveiligt je berichten tegen hackers</string>
+    <string name="Page5Message"><![CDATA[<b>Telegram+</b>]]> heeft geen beperkingen op de grootte van je media en gesprekken</string>
+    <string name="Page6Message"><![CDATA[<b>Telegram+</b>]]> biedt toegang tot je berichten vanaf meerdere apparaten</string>
+    <string name="Page7Message"><![CDATA[<b>Telegram+</b>]]> berichten zijn sterk versleuteld en kunnen zichzelf vernietigen</string>
     <string name="StartMessaging">Begin nu met chatten</string>
 
     <!--plurals-->
@@ -427,4 +439,8 @@
 
     <!--Don't change this! Not for localization!-->
     <string name="CacheTag">CACHE_TAG</string>
+    <string name="changelog_full_title">Change Log</string>
+    <string name="changelog_title">What\'s New</string>
+    <string name="changelog_ok_button">OK</string>
+    <string name="changelog_show_full">more...</string>
 </resources>

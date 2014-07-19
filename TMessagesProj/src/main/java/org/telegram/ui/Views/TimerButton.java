@@ -21,7 +21,7 @@ import android.view.View;
 
 import org.telegram.android.AndroidUtilities;
 import org.telegram.messenger.FileLog;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 
 public class TimerButton extends View {
 

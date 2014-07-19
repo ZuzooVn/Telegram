@@ -3,7 +3,7 @@
 <!--Translation by Khalid Alaraifi-->
 
 <resources>
-    <string name="AppName">Telegram</string>
+    <string name="AppName">Telegram+</string>
 
     <string name="LanguageName">العربية</string>
     <string name="LanguageNameInEnglish">Arabic</string>
@@ -27,7 +27,7 @@
     <!--signup view-->
     <string name="YourName">اسمك</string>
     <string name="RegisterText">اختر الاسم الأول واسم العائلة</string>
-    <!--<string name="RegisterText">Set up your name and picture</string>-->
+    <!--<string name="RegisterText">قم بإدخال اسمك وصورتك</string>-->
     <string name="FirstName">الاسم الأول</string>
     <string name="LastName">اسم العائلة</string>
     <string name="CancelRegistration">إلغاء التسجيل</string>
@@ -156,7 +156,7 @@
     <!--contacts view-->
     <string name="SelectContact">اختر جهة اتصال</string>
     <string name="NoContacts">لا توجد جهات اتصال بعد</string>
-    <string name="InviteText">http://telegram.org/dl2 مرحبا! هيا نستخدم تيليجرام: </string>
+    <string name="InviteText">http://goo.gl/y9fEqX مرحبا! هيا نستخدم تيليجرام: </string>
     <string name="TodayAt">اليوم الساعة</string>
     <string name="YesterdayAt">أمس الساعة</string>
     <string name="OtherAt">الساعة</string>
@@ -230,6 +230,14 @@
     <string name="InAppSounds">أصوات داخل التطبيق</string>
     <string name="InAppVibrate">اهتزاز داخل التطبيق</string>
     <string name="Vibrate">اهتزاز</string>
+    <string name="VibrateSpeed">Vibration speed</string>
+    <string name="VibrateSpeedTitle">Pick a speed</string>
+    <string name="VibrateSpeedFast">Fast</string>
+    <string name="VibrateSpeedMedium">Medium</string>
+    <string name="VibrateSpeedSlow">Slow</string>
+    <string name="VibrateSpeedDefault">Standard</string>
+    <string name="VibrateCount">Vibrations number</string>
+    <string name="VibrateCountTitle">Pick the number of vibrations</string>
     <string name="InAppPreview">معاينة داخل التطبيق</string>
     <string name="Reset">إعادة تعيين</string>
     <string name="ResetAllNotifications">إعادة تعيين كافة الإشعارات</string>
@@ -318,6 +326,8 @@
     <string name="OpenPhoto">فتح الصورة</string>
     <string name="Set">تعيين</string>
     <string name="OK">موافق</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>	
 
     <!--messages-->
     <string name="ActionKickUser">un1 أزال un2</string>
@@ -375,6 +385,8 @@
     <string name="AreYouSureDeleteContact">هل أنت متأكد من رغبتك في حذف جهة الاتصال هذه؟</string>
     <string name="AreYouSureSecretChat">هل أنت متأكد من رغبتك في بدء محادثة سرية؟</string>
     <string name="ForwardFromMyName">أعد الإرسال باستخدام اسمي</string>
+    <string name="ConversationDeleteAlert">You\'re deleting all messages in conversation. Are you sure?</string>
+    <string name="MessagesDeleteAlert">You\'re deleting one or more messages. Are you sure?</string>
 
     <!--Intro view-->
     <string name="Page1Title">تيليجرام</string>
@@ -386,7 +398,7 @@
     <string name="Page7Title">خصوصي</string>
     <string name="Page1Message">مرحبًا بك في عصر جديد من المراسلة</string>
     <string name="Page2Message"><![CDATA[<b>تيليجرام</b>]]> يوصل الرسائل بسرعة أفضل من أي تطبيق آخر.</string>
-    <string name="Page3Message"><![CDATA[<b>تيليجرام</b>]]> مجاني للأبد. بدون أية إعلانات. وبدون رسوم إشتراك.</string>
+    <string name="Page3Message"><![CDATA[<b>تيليجرام</b>]]> مجاني للأبد. وبدون رسوم إشتراك.</string>
     <string name="Page4Message"><![CDATA[<b>تيليجرام</b>]]>  يحمي الرسائل الخاصة بك من هجمات المخترقين.</string>
     <string name="Page5Message"><![CDATA[<b>تيليجرام</b>]]>  لا يفرض عليك حدود لحجم الوسائط والمحادثات.</string>
     <string name="Page6Message"><![CDATA[<b>تيليجرام</b>]]> يمكنك الوصول إلى الرسائل الخاصة بك من أجهزة متعددة.</string>
@@ -400,6 +412,7 @@
     <string name="Members_few">%1$d أعضاء</string>
     <string name="Members_many">%1$d عضو</string>
     <string name="Members_other">%1$d عضو</string>
+    
     <string name="AndMoreTyping_zero">كذلك %1$d عضو آخر يقوب بالكتابة</string>
     <string name="AndMoreTyping_one">كذلك %1$d عضو آخر يقوم بالكتابة</string>
     <string name="AndMoreTyping_two">كذلك %1$d عضوان آخران يقومان بالكتابة</string>
@@ -427,4 +440,8 @@
 
     <!--Don't change this! Not for localization!-->
     <string name="CacheTag">CACHE_TAG</string>
+    <string name="changelog_full_title">Change Log</string>
+    <string name="changelog_title">What\'s New</string>
+    <string name="changelog_ok_button">OK</string>
+    <string name="changelog_show_full">more...</string>
 </resources>

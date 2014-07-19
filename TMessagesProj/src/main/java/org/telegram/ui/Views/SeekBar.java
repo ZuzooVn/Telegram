@@ -13,9 +13,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
-
+import com.andguru.telegram.messenger.R;
 import org.telegram.android.AndroidUtilities;
-import org.telegram.messenger.R;
+
 
 public class SeekBar {
 

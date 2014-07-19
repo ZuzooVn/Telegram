@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
 
+import com.andguru.telegram.messenger.R;
 import org.telegram.android.AndroidUtilities;
 import org.telegram.objects.MessageObject;
 import org.telegram.ui.ApplicationLoader;

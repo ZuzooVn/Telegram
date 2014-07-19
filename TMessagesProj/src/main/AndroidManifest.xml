@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.telegram.messenger"
+    package="com.andguru.telegram.messenger"
+    xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="auto">
 
     <supports-screens android:anyDensity="true"
@@ -95,7 +96,14 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:mimeType="vnd.android.cursor.item/vnd.org.telegram.messenger.android.profile"/>
             </intent-filter>
+	        <intent-filter>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="sms"/>
+                <data android:scheme="smsto"/>
+            </intent-filter>
         </activity>
+
         <activity
             android:name="org.telegram.ui.IntroActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
@@ -146,12 +154,16 @@
             </intent-filter>
         </receiver>
 
-        <uses-library android:name="com.sec.android.app.multiwindow" android:required="false" />
+        <activity android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+	
+	<uses-library android:name="com.sec.android.app.multiwindow" android:required="false" />
         <meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
         <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:value="632dp" />
         <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:value="598dp" />
         <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:value="632dp" />
         <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:value="598dp" />
+
 
     </application>
 

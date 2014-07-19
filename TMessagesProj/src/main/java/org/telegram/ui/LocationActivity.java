@@ -31,7 +31,7 @@ import org.telegram.messenger.TLRPC;
 import org.telegram.objects.MessageObject;
 import org.telegram.android.MessagesController;
 import org.telegram.messenger.NotificationCenter;
-import org.telegram.messenger.R;
+import com.andguru.telegram.messenger.R;
 import org.telegram.messenger.Utilities;
 import org.telegram.ui.Views.ActionBar.ActionBarLayer;
 import org.telegram.ui.Views.ActionBar.ActionBarMenu;
